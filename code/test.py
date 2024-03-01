@@ -1,54 +1,59 @@
-import string
+def isPowerOfTwo(n):
+    if n == 0:
+        return False
+    if n & (n - 1) == 0:
+        return True
 
-message = 'AABABBBABAABABBBABBABB'
-dictionary = {}
-tmp, i, last = '', 1, 0
-Flag = True
-for x in message:
-    tmp += x
-    Flag = False
-    if tmp not in dictionary.keys():
-        dictionary[tmp] = i
-        tmp = ''
-        i += 1
-        Flag = True
 
-if not Flag:
-    last = dictionary[tmp]
+inp = input('Enter Input(hamming Code): ')
+hamming = ''
+length = len(inp)
 
-res = []
-for char, idx in dictionary.items():
-    tmp, s = '', ''
-    for x, j in zip(char[:-1], range(len(char))):
-        tmp += x
-        if tmp in dictionary.keys():
-            take = dictionary[tmp]
-            s = str(take) + char[j + 1:]
-    if len(char) == 1:
-        s = char
-    res.append(s)
-if last:
-    res.append(str(last))
+# calculate redundant bits
+r = 0
+for i in range(length):
+    if 2 ** i == length + i + 1: # ** exponentiation operator
+        r = i
+        break
 
-alphabet = string.ascii_uppercase
-mark = dict(zip(alphabet, range(len(alphabet))))
 
-final_res = []
-for x in res:
-    tmp = ""
-    for char in x:
-        if char.isalpha():
-            tmp += bin(mark[char])[2:]
-        else:
-            tmp += bin(int(char))[2:]
-    final_res.append(tmp)
-   
+# hamming code with parity positioned
+k = 0
+for i in range(1, length + r + 1):
+    if isPowerOfTwo(i):
+        hamming += 'p'
+    else:
+        hamming += inp[k]
+        k += 1
 
-print(res)
+print('Position generate parity bit : ', hamming)
 
-# Find the length of the longest binary string
-max_size = max(len(binary_str) for binary_str in final_res)
-encoded_res = []
-for x in final_res:
-    encoded_res.append(x.zfill(max_size))    
-print("Encoded: ", encoded_res)
+# calculate parity bits
+res = 0
+for i in range(len(hamming)):
+    if hamming[i] == '1':
+        res ^= (i + 1)
+
+P = bin(res)[2:].zfill(r)[::-1]
+
+# hamming code generate
+k = 0
+hamming_list = list(hamming)
+for i in range(len(hamming)):
+    if hamming_list[i] == 'p':
+        hamming_list[i] = P[k]
+        k += 1
+hamming = ''.join(hamming_list)
+print('Hamming code : ', hamming)
+
+# Error  detection
+rcv = input('Enter Received Code: ')
+res = 0
+for i in range(len(rcv)):
+    if rcv[i] == '1':
+        res ^= (i + 1)
+
+if res == 0:
+    print('No Error')
+else:
+    print('Error at : ', res)
