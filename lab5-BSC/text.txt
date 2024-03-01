@@ -1,0 +1,3 @@
+C = 1: When there are no errors (p = 0), the channel is perfect, and the capacity is 1 bit per transmission.
+C = 0: When the probability of error is 1 (p = 1), the channel is completely unreliable, and the capacity is 0 bits per transmission.
+0 < C < 1: As the error probability increases (0 < p < 1), the channel becomes more noisy, and the capacity decreases. This indicates a trade-off between the transmission rate and the reliability of the information.
