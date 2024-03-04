@@ -1,18 +1,9 @@
 Thanks for visiting my GitHub account!
 
-<p align="center"><img src="https://github.com/learnwithfair/cryptography/blob/main/crypograpy-info.jpg" width="400" height="250" alt="PHP"></p>
-
-## About Cryptography
-
-**Cryptography** is the process of hiding or coding information so that only the person a message was intended for can read it.
-
 ### For More 
-- Visit-> https://en.wikipedia.org/wiki/Cryptography
-- Visit -> https://www.geeksforgeeks.org/cryptography-and-its-types/
+- Visit-> [https://en.wikipedia.org/wiki/Cryptography](https://en.wikipedia.org/wiki/Information_theory)
 
 
-## Source Code
-[Download](https://mega.nz/folder/pK0TEbZD#jEktHP5QPV5sH5TMEaXKAg)
 
 ## Required Software
 - Python [Download](https://www.python.org/downloads/)
@@ -20,7 +11,7 @@ Thanks for visiting my GitHub account!
 - Or, Visual Studio Code  [Download](https://code.visualstudio.com/download)
 
 **Note: For VS Code (Extension)**
-- Python (Update version)
+- Python (Updated version)
 - Python Debugger
 - Pylance
 
@@ -43,6 +34,4 @@ pip install numpy
 |   |
 |:---:|
 |Problem List|
-|![list](https://github.com/learnwithfair/cryptography/blob/main/index.jpg)|
-
-#### Q8. Write a program to implement encryption and decryption using Rail-fence Cipher
+|![list](https://github.com/learnwithfair/information-theory-and-coding/blob/main/index.jpg)|
